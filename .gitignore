@@ -37,3 +37,8 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# Large video files
+src/assets/video/*.MOV
+src/assets/video/*.mov
+src/assets/video/*.mp4

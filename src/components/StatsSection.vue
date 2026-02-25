@@ -16,55 +16,75 @@ useScrollAnimation('.sdg-section', 'animate__fadeInUp')
 <template>
   <section id="stats" class="relative bg-white overflow-hidden">
     <div class="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-24">
-      <!-- TAM SAM SOM - flex layout, no absolute positioning -->
+      <!-- TAM SAM SOM — two columns: circles left, stats right -->
       <div class="stat-item flex flex-col lg:flex-row gap-12 lg:gap-16 items-start lg:items-center mb-16 lg:mb-24">
-        <!-- Left: Concentric circles - pure CSS, no overlap -->
-        <div class="relative shrink-0 mx-auto lg:mx-0">
-          <div class="relative size-[180px] sm:size-[240px] lg:size-[280px]">
-            <div class="absolute inset-0 rounded-full border-2 border-[#8B0000]" />
-            <div class="absolute inset-[15%] rounded-full border-2 border-[#8B0000]" />
-            <div class="absolute inset-[30%] rounded-full border-2 border-[#8B0000] flex items-center justify-center">
-              <span class="font-['Quicksand',sans-serif] font-medium text-lg sm:text-xl text-black">SOM</span>
-            </div>
-            <div class="absolute left-1/2 top-[8%] -translate-x-1/2 font-['Quicksand',sans-serif] font-medium text-xl sm:text-2xl text-black whitespace-nowrap">TAM</div>
-            <div class="absolute left-1/2 top-[38%] -translate-x-1/2 font-['Quicksand',sans-serif] font-medium text-lg sm:text-xl text-black whitespace-nowrap">SAM</div>
+        <!-- Left: Concentric circles diagram — each label in its OWN ring -->
+        <div class="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[400px] lg:h-[400px] mx-auto lg:mx-0 shrink-0">
+          <!-- TAM — outer circle, label at top -->
+          <div
+            class="absolute inset-0 rounded-full border-2 border-[#8B0000] flex items-start justify-center pt-5 sm:pt-6 lg:pt-8"
+          >
+            <span class="font-['Quicksand',sans-serif] font-bold text-lg sm:text-xl lg:text-2xl text-black">TAM</span>
+          </div>
+
+          <!-- SAM — middle circle, label at top of middle ring -->
+          <div
+            class="absolute inset-[15%] rounded-full border-2 border-[#8B0000] flex items-start justify-center pt-4 sm:pt-5 lg:pt-6"
+          >
+            <span class="font-['Quicksand',sans-serif] font-bold text-base sm:text-lg lg:text-xl text-black">SAM</span>
+          </div>
+
+          <!-- SOM — inner circle, label centered -->
+          <div
+            class="absolute inset-[32%] rounded-full border-2 border-[#8B0000] flex items-center justify-center"
+          >
+            <span class="font-['Quicksand',sans-serif] font-bold text-base sm:text-lg lg:text-xl text-black">SOM</span>
           </div>
         </div>
 
-        <!-- Right: Three stat blocks - stacked, no overlap -->
+        <!-- Right: Three stat blocks stacked vertically -->
         <div class="flex-1 w-full space-y-8 sm:space-y-10">
-          <h2 class="font-['Quicksand',sans-serif] font-medium text-3xl sm:text-4xl lg:text-5xl text-black mb-6">
+          <h2 class="font-['Quicksand',sans-serif] font-medium text-3xl sm:text-4xl lg:text-5xl text-black mb-8">
             TAMSAMSOM for Kazakhstan
           </h2>
 
           <div class="space-y-8 sm:space-y-10">
-            <!-- TAM -->
+            <!-- TAM stat block -->
             <div>
-              <p class="font-['Quicksand',sans-serif] font-semibold text-xl sm:text-2xl lg:text-3xl text-black mb-2">
-                Total addressable market
+              <p class="font-['Quicksand',sans-serif] font-bold text-xl sm:text-2xl text-[#8B0000] mb-2">
+                TAM — Total addressable market
               </p>
-              <p class="font-['Quicksand',sans-serif] font-normal text-base sm:text-lg lg:text-xl text-black">
-                <span class="font-semibold">365,900</span> people (all newborns in Kazakhstan)
+              <p class="font-['Quicksand',sans-serif] font-bold text-3xl sm:text-4xl text-black mb-1">
+                365,900
+              </p>
+              <p class="font-['Quicksand',sans-serif] font-normal text-base sm:text-lg text-gray-600">
+                people (all newborns in Kazakhstan)
               </p>
             </div>
 
-            <!-- SAM -->
+            <!-- SAM stat block -->
             <div>
-              <p class="font-['Quicksand',sans-serif] font-semibold text-xl sm:text-2xl lg:text-3xl text-black mb-2">
-                Serviceable addressable market
+              <p class="font-['Quicksand',sans-serif] font-bold text-xl sm:text-2xl text-[#8B0000] mb-2">
+                SAM — Serviceable addressable market
               </p>
-              <p class="font-['Quicksand',sans-serif] font-normal text-base sm:text-lg lg:text-xl text-black">
-                <span class="font-semibold">256,000</span> people (women with access to a smartphone and internet)
+              <p class="font-['Quicksand',sans-serif] font-bold text-3xl sm:text-4xl text-black mb-1">
+                250,000
+              </p>
+              <p class="font-['Quicksand',sans-serif] font-normal text-base sm:text-lg text-gray-600">
+                people (women with access to a smartphone and internet)
               </p>
             </div>
 
-            <!-- SOM -->
+            <!-- SOM stat block -->
             <div>
-              <p class="font-['Quicksand',sans-serif] font-semibold text-xl sm:text-2xl lg:text-3xl text-black mb-2">
-                Serviceable obtainable market
+              <p class="font-['Quicksand',sans-serif] font-bold text-xl sm:text-2xl text-[#8B0000] mb-2">
+                SOM — Serviceable obtainable market
               </p>
-              <p class="font-['Quicksand',sans-serif] font-normal text-base sm:text-lg lg:text-xl text-black">
-                <span class="font-semibold">20,000</span> people (realistically achievable audience in the first year of the project)
+              <p class="font-['Quicksand',sans-serif] font-bold text-3xl sm:text-4xl text-black mb-1">
+                20,000
+              </p>
+              <p class="font-['Quicksand',sans-serif] font-normal text-base sm:text-lg text-gray-600">
+                people (realistically achievable audience in the first year)
               </p>
             </div>
           </div>

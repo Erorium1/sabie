@@ -34,13 +34,17 @@ useScrollAnimation('.video-section-title', 'animate__fadeInDown')
         See it in action
       </h2>
 
-      <!-- Video placeholder -->
+      <!-- YouTube video -->
       <div
-        class="bg-[#d9d9d9] h-[600px] rounded-[50px] flex items-center justify-center max-w-[1066px] mx-auto"
+        class="relative w-full max-w-[1066px] mx-auto aspect-video rounded-[50px] overflow-hidden bg-black"
       >
-        <p class="font-['Quicksand',sans-serif] font-semibold text-[40px] leading-normal text-black">
-          Video
-        </p>
+        <iframe
+          class="absolute inset-0 w-full h-full"
+          src="https://www.youtube.com/embed/Hkzp1fQfdXw?rel=0"
+          title="Sabie - See it in action"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
       </div>
     </div>
   </section>

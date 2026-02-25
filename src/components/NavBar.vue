@@ -58,9 +58,15 @@ onMounted(() => {
         <div class="h-16 w-8">
           <img alt="" class="block size-full object-contain object-bottom" :src="imgGroup104" />
         </div>
-        <div class="size-12">
+        <a
+          href="https://www.youtube.com/watch?feature=shared&v=1Um46R1E5LQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="size-12 block"
+          aria-label="YouTube"
+        >
           <img alt="" class="block size-full object-contain" :src="imgYoutube" />
-        </div>
+        </a>
       </div>
 
       <!-- Hamburger - VISIBLE on mobile only (hidden on sm+) -->

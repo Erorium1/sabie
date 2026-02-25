@@ -44,7 +44,13 @@ const imgYoutube = 'https://www.figma.com/api/mcp/asset/364aecaa-1242-49e8-99e7-
         </div>
 
         <!-- YouTube -->
-        <a href="#" class="size-[42px] shrink-0" aria-label="YouTube">
+        <a
+          href="https://www.youtube.com/watch?feature=shared&v=1Um46R1E5LQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="size-[42px] shrink-0"
+          aria-label="YouTube"
+        >
           <img alt="" class="block size-full object-contain" :src="imgYoutube" />
         </a>
       </div>
