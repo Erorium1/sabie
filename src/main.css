@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Design tokens from Figma - deep red/crimson theme */
+@theme {
+  /* Brand colors - from Figma node 8:4 */
+  --color-brand-crimson: #7b0f1a;
+  --color-brand-deep-red: #5C0A1E;
+  --color-brand-dark: #2D0510;
+  --color-brand-accent: #ff938f;
+  --color-brand-accent-border: #ff8e8e;
+  --color-brand-nav: #df6666;
+  --color-brand-light: #FFF5F7;
+  
+  /* Neutrals */
+  --color-surface: #1A0A0E;
+  --color-surface-elevated: #2A1218;
+  --color-border: rgba(255, 255, 255, 0.1);
+  
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  
+  /* Spacing */
+  --spacing-section: 120px;
+  --spacing-container: 80px;
+  
+  /* Border radius */
+  --radius-card: 16px;
+  --radius-pill: 9999px;
+  --radius-button: 9999px;
+  
+  /* Transitions */
+  --ease-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #7b0f1a;
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Animate.css duration */
+:root {
+  --animate-duration: 0.6s;
+}
