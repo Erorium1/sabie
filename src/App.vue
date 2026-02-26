@@ -24,10 +24,10 @@ import FooterSection from '@/components/FooterSection.vue'
       <StatsSection />
       <ProductSection />
       <AppShowcaseSection />
-      <AITechnologySection />
       <TestimonialsSection />
       <CTASection />
       <VideoSection />
+      <AITechnologySection />
       <FAQSection />
       <FooterSection />
     </main>

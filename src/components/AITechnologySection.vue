@@ -1,93 +1,140 @@
 <script setup>
 import { useScrollAnimation } from '@/composables/useScrollAnimation'
 
-const imgC88B81Fc2F01C2E8F421Ae72E8637Cb11 =
-  'https://www.figma.com/api/mcp/asset/994a41da-2d1f-49ea-9640-31fca4f190d2'
-const imgRectangle142 = 'https://www.figma.com/api/mcp/asset/b2c73905-2d74-43fe-94c1-3a2e9e1141b6'
+const imgRobot =
+  'https://www.figma.com/api/mcp/asset/c8f26c6d-79f3-420d-a2a7-872fd74a64e7'
 
-useScrollAnimation('.ai-section', 'animate__fadeInUp')
+const features = [
+  {
+    id: 1,
+    title: 'Personalized Emotional & Informational Support',
+    description:
+      'Based on the current week of pregnancy and the results received from the Sabie Doppler, the AI displays the most frequently asked questions relevant to that stage. It provides personalized answers and supportive guidance to help reduce anxiety and promote maternal well-being.',
+  },
+  {
+    id: 2,
+    title: 'AI-Assisted Shopping Planning',
+    description:
+      "Sabie's interactive AI helps mothers create personalized baby shopping lists by analyzing preferences, needs, and budget, making preparation simple and stress-free.",
+  },
+  {
+    id: 3,
+    title: 'Intelligent Heart Rate Analysis',
+    description:
+      "The Sabie AI analyzes fetal heart rate data from the home Doppler using timestamps and machine learning to detect individual patterns based on gestational age and measurement history. It interprets four areas: Overall Heart Rate, Trends and Dynamics, Fetal Activity and Condition, and Recommendations and Alerts and provides daily, weekly, and monthly averages displayed as numbers and graphs in the app. It presents clear summaries and visual insights for better understanding.",
+  },
+]
+
+useScrollAnimation('.ai-title', 'animate__fadeInDown')
+useScrollAnimation('.ai-robot', 'animate__fadeInLeft')
+useScrollAnimation('.ai-card', 'animate__fadeInUp')
 </script>
 
 <template>
-  <section class="ai-section relative bg-gradient-to-b from-[#fff3f3] to-white overflow-hidden">
-    <!-- Red background block -->
-    <div
-      class="absolute left-[70px] top-[9px] w-[1300px] max-w-[calc(100%-140px)] h-[800px] bg-[#7b0f1a] rounded-[50px]"
-    />
+  <section class="relative bg-[#FFF5F5] py-20 px-4 sm:px-8 lg:px-16">
+    <div class="max-w-[1280px] mx-auto">
+      <!-- Crimson card: overflow-hidden clips robot on left rounded edge -->
+      <div
+        class="relative bg-[#6B0000] rounded-3xl overflow-hidden py-12 px-8 lg:pt-12 lg:pb-12 lg:pr-12 lg:pl-[360px]"
+      >
+        <!-- Robot: full height, gradient fade on right edge -->
+        <div
+          class="ai-robot hidden lg:block absolute top-0 left-0 bottom-0 w-[340px]"
+        >
+          <img
+            :src="imgRobot"
+            alt="AI Robot"
+            class="w-full h-full object-cover"
+            style="object-position: center top;"
+          />
+          <!-- Gradient fade right edge blends into crimson -->
+          <div
+            class="absolute inset-y-0 right-0 w-24 bg-gradient-to-r from-transparent to-[#6B0000]"
+          />
+        </div>
 
-    <!-- Robot/illustration - left side -->
-    <div class="absolute left-[70px] top-[9px] w-[487px] h-[800px] flex items-center justify-center overflow-hidden">
-      <div class="rotate-180 scale-y-[-1] w-full h-full">
-        <img
-          alt="AI illustration"
-          class="absolute inset-0 w-[164%] h-full object-cover -left-[64%]"
-          :src="imgC88B81Fc2F01C2E8F421Ae72E8637Cb11"
+        <!-- Decorative rectangle behind LEFT column (two stacked cards) -->
+        <div
+          class="hidden lg:block"
+          style="
+            position: absolute;
+            left: 356px;
+            top: 100px;
+            width: 310px;
+            height: 420px;
+            background: rgba(90, 0, 0, 0.5);
+            border-radius: 24px;
+            z-index: 0;
+          "
         />
+
+        <!-- Decorative rectangle behind RIGHT card -->
+        <div
+          class="hidden lg:block"
+          style="
+            position: absolute;
+            right: 24px;
+            top: 80px;
+            width: 310px;
+            height: 440px;
+            background: rgba(90, 0, 0, 0.5);
+            border-radius: 24px;
+            z-index: 0;
+          "
+        />
+
+        <!-- Content (z-10 so cards sit above decorative rects) -->
+        <div class="relative z-10">
+          <!-- Title: left-aligned above cards -->
+          <div class="ai-title text-left mb-8">
+            <h2 class="font-['Quicksand',sans-serif] text-3xl lg:text-4xl font-bold text-white mb-1">
+              AI technology behind Sabie
+            </h2>
+            <p class="font-['Quicksand',sans-serif] text-white/50 text-xl">
+              How does it work?
+            </p>
+          </div>
+
+          <!-- Cards grid: gap-5, 2 cols on lg, z-10 above decorative rects -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 relative z-10">
+            <!-- Left column: 2 stacked cards -->
+            <div class="flex flex-col gap-5">
+              <div
+                class="ai-card bg-white/95 rounded-2xl p-6 border border-white/20"
+              >
+                <h3 class="font-['Quicksand',sans-serif] font-bold text-gray-900 mb-2">
+                  {{ features[0].title }}
+                </h3>
+                <p class="font-['Quicksand',sans-serif] text-gray-500 text-sm leading-relaxed">
+                  {{ features[0].description }}
+                </p>
+              </div>
+              <div
+                class="ai-card bg-white/95 rounded-2xl p-6 border border-white/20"
+              >
+                <h3 class="font-['Quicksand',sans-serif] font-bold text-gray-900 mb-2">
+                  {{ features[1].title }}
+                </h3>
+                <p class="font-['Quicksand',sans-serif] text-gray-500 text-sm leading-relaxed">
+                  {{ features[1].description }}
+                </p>
+              </div>
+            </div>
+
+            <!-- Right column: 1 tall card, content vertically centered -->
+            <div
+              class="ai-card bg-white/95 rounded-2xl p-6 border border-white/20 lg:self-stretch flex flex-col justify-center"
+            >
+              <h3 class="font-['Quicksand',sans-serif] font-bold text-gray-900 mb-2">
+                {{ features[2].title }}
+              </h3>
+              <p class="font-['Quicksand',sans-serif] text-gray-500 text-sm leading-relaxed">
+                {{ features[2].description }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Top oval accent -->
-    <div class="absolute left-[361px] top-[-114px] size-[245px] flex items-center justify-center">
-      <div class="scale-y-[-1] size-full rounded-full bg-white/10" />
-    </div>
-
-    <!-- Titles -->
-    <h2
-      class="absolute left-[519px] top-[32px] font-['Quicksand',sans-serif] font-semibold text-[40px] leading-normal text-white"
-    >
-      AI technology behind Sabie
-    </h2>
-    <p
-      class="absolute left-[626px] top-[82px] font-['Quicksand',sans-serif] font-normal text-[36px] leading-normal text-white"
-    >
-      How does it work?
-    </p>
-
-    <!-- Diagram/flow image -->
-    <div class="absolute left-[582px] top-[240px] w-[788px] h-[569px]">
-      <img alt="" class="block w-full h-full object-contain" :src="imgRectangle142" />
-    </div>
-
-    <!-- Three white feature cards -->
-    <div class="absolute left-[1010px] top-[244px] w-[330px] h-[440px] bg-white rounded-[30px]" />
-    <div class="absolute left-[650px] top-[537px] w-[330px] h-[242px] bg-white rounded-[30px]" />
-    <div class="absolute left-[650px] top-[176px] w-[330px] h-[331px] bg-white rounded-[30px]" />
-
-    <!-- Card content -->
-    <div class="absolute left-[1040px] top-[276px] w-[260px]">
-      <h3 class="font-['Quicksand',sans-serif] font-semibold text-[20px] leading-normal text-black mb-4">
-        Intelligent Heart Rate Analysis
-      </h3>
-      <p class="font-['Quicksand',sans-serif] font-medium text-[16px] leading-normal text-black">
-        The Sabie AI analyzes fetal heart rate data from the home Doppler using timestamps and
-        machine learning to detect individual patterns based on gestational age and measurement
-        history. It interprets four areas: Overall Heart Rate, Trends and Dynamics, Fetal Activity
-        and Condition, and Recommendations and Alerts and provides daily, weekly, and monthly
-        averages displayed as numbers and graphs in the app. It presents clear summaries and
-        visual insights for better understanding.
-      </p>
-    </div>
-
-    <div class="absolute left-[680px] top-[203px] w-[285px]">
-      <h3 class="font-['Quicksand',sans-serif] font-semibold text-[20px] leading-normal text-black mb-4">
-        Personalized Emotional & Informational Support
-      </h3>
-      <p class="font-['Quicksand',sans-serif] font-medium text-[16px] leading-normal text-black">
-        Based on the current week of pregnancy and the results received from the Sabie Doppler,
-        the AI displays the most frequently asked questions relevant to that stage. It provides
-        personalized answers and supportive guidance to help reduce anxiety and promote maternal
-        well-being.
-      </p>
-    </div>
-
-    <div class="absolute left-[680px] top-[572px] w-[268px]">
-      <h3 class="font-['Quicksand',sans-serif] font-semibold text-[20px] leading-normal text-black mb-4">
-        AI-Assisted Shopping Planning
-      </h3>
-      <p class="font-['Quicksand',sans-serif] font-medium text-[16px] leading-normal text-black">
-        Sabie's interactive AI helps mothers create personalized baby shopping lists by analyzing
-        preferences, needs, and budget, making preparation simple and stress-free.
-      </p>
     </div>
   </section>
 </template>
