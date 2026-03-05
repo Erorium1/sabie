@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sign_up_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -100,8 +101,12 @@ class WelcomeScreen extends StatelessWidget {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            // Navigate to next screen (e.g., home or auth)
-                            // Navigator.pushReplacement(...);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const SignUpScreen(),
+                              ),
+                            );
                           },
                           borderRadius: BorderRadius.circular(30),
                           child: Padding(

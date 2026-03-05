@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter pub get)",
+      "Bash(ls \"c:\\\\Users\\\\Yedil\\\\AndroidStudioProjects\\\\sabie\\\\assets\\\\homescreen\"\" 2>/dev/null && ls \"c:UsersYedilAndroidStudioProjectssabieassets\"\")"
+    ]
+  }
+}
